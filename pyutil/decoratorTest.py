@@ -12,12 +12,16 @@ app = Flask(__name__)
 
 def memo(func):
     cache={}
-    print "in cache:",cache
+    # print "in cache:",cache
     @wraps(func)
-    def wrap(*args):
-        print "in wrap:",cache
+    def wrap(*args,**kwargs):
+        if kwargs.get("c"):
+            print "aaa",kwargs.get("c")
+        else:
+            print "none"
+        print "in wrap:",cache,args,kwargs
         if args not in cache:
-            cache[args]=func(*args)
+            cache[args]=func(*args,**kwargs)
         return cache[args]
     return wrap
 
@@ -40,6 +44,7 @@ def exception(func):
             return msg
             # raise e
     return wrap
+
 @testDe
 @memo
 def test(a,b):
@@ -51,9 +56,11 @@ def test(a,b):
 def test1(a,b):
     print "a+b=",a,b
     return a+b
-@exception
+
+# @exception
 @memo
-def test3(a,b):
+def test3(a,b,**kwargs):
+    print "test3"
     return a/b
 
 
@@ -64,14 +71,14 @@ def hello():
 
 
 if __name__ == '__main__':
-    print test(1,3)
-    print test(2,3)
-    print test(1,3)
-    print test1(3,3)
-    print test1(3,3)
+    # print test(1,3)
+    # print test(2,3)
+    # print test(1,3)
+    # print test1(3,3)
+    # print test1(3,3)
 
-    print test3(3,1)
-    print test3(3,1)
-    print test3(3,0)
+    print test3(a=3,b=1,c="asaaa")
+    print test3(3,1,c="asd")
+    # print test3(3,0)
     print "end"
-    app.run(debug=False, host='0.0.0.0')
+    # app.run(debug=False, host='0.0.0.0')
