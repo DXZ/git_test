@@ -14,5 +14,10 @@ def checkout_memory(f):
 def test(a):
     return a*a
 
+@checkout_memory
+def testB():
+    import pandas as pd
+    return pd.DataFrame(np.random.randint(0,100,size=(10000, 4)), columns=list('ABCD'))
+
 if __name__ == '__main__':
     test(1)
