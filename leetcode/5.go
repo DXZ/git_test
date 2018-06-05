@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+)
+
+func longestPalindrome(s string) string {
+
+	// for i in
+	return ""
+}
+
+func longestPalindrome3(s string) (result string) {
+	l1 := len(s)
+	s1 := reverseString(s)
+	fmt.Println(l1, s1)
+	for i := 0; i < l1; i++ {
+		fmt.Println("11", i, s[i])
+	}
+	return
+}
+
+func reverseString(s string) string {
+	runes := []rune(s)
+	for from, to := 0, len(runes)-1; from < to; from, to = from+1, to-1 {
+		runes[from], runes[to] = runes[to], runes[from]
+	}
+	return string(runes)
+}
+func main() {
+	fmt.Println("sss:", longestPalindrome3("abbac"))
+}
