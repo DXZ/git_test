@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println("sss:", longestPalindrome("caac"))
+	fmt.Println("sss:", longestPalindrome("abcda"))
 }
 
 func longestPalindrome(s string) string {
@@ -14,8 +14,8 @@ func longestPalindrome(s string) string {
 		return s
 	}
 
-	start, end := 1, len(str)
-	maxlegth := 0
+	start, end := 0, len(str)
+	maxlegth := -1
 	var max string
 	for start < end {
 		begin1 := start
@@ -27,11 +27,12 @@ func longestPalindrome(s string) string {
 			begin1++
 		}
 		fmt.Println("111", begin1, begin0)
-		for begin0-1 > 0 && begin1+1 < end && str[begin0-1] == str[begin1+1] {
+		for begin0 > 0 && begin1 < end -1 && str[begin0-1] == str[begin1+1] {
 			fmt.Println("3333", begin0, begin1, string(str[begin0]), string(str[begin1]))
 			begin0--
 			begin1++
 		}
+
 
 		fmt.Println("222", begin1, begin0)
 		if maxlegth < begin1-begin0 {
