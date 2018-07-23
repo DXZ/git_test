@@ -9,4 +9,27 @@ print("asd")
 
 local a = {123,345}
 print(table.unpack(a).."aaaa")
+
+local i = {}
+i[1]  = 1
+i[3]  = 1
+i[2]  = 1
+
+i[100]  = 1
+local c = {}
+c[i] = 1
+
+print("len(i)=",#i,c[i],i)
+-- print(table.maxn(i)) 启用了
+for k,v in pairs(c)
+do
+    print(v)
+end
+i = {}
+c[i] = 2
+print("len(i)=",#i,c[i],i)
+for k,v in pairs(c)
+do
+    print(v)
+end
 return "asadas"
