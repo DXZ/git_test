@@ -8,6 +8,7 @@ _M.global = 100
 _M.global1 = {name=2,test=3}
 
 
+
 function _M.new(self,o)
     o = o or {}
     setmetatable(o,self)

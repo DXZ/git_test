@@ -15,6 +15,10 @@ i[1]  = 1
 i[3]  = 1
 i[2]  = 1
 
+local ccc = {asd={1,3,4,4}}
+print("ccc=",ccc)
+
+
 i[100]  = 1
 local c = {}
 c[i] = 1
