@@ -78,4 +78,9 @@ MithOrder["创新意识"] = 10
 
 print(#MithOrder)
 
+
+local numDict = {12="123",2="789"}
+
+print(numDict)
+
 return "asadas"

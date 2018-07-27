@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -10,26 +11,49 @@ func canPartitionKSubsets(nums []int, k int) bool {
 	}
 
 	sum := 0
-	all_nums := make(map[int]int)
 	for _, num := range nums {
 		sum += num
-		if _, ok := all_nums[num]; ok {
-			all_nums[num] += 1
-		} else {
-			all_nums[num] = 1
-		}
 	}
 
 	if sum%k != 0 {
 		return false
 	}
-	target := sum / k
-	fmt.Println(sum, all_nums, target)
-	return true
+	expected := sum / k
+
+	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
+	// fmt.Println(sum, expected, nums)
+
+	return canPartitionKSubsetsItem(nums, k, 0, 0, expected)
+}
+
+func canPartitionKSubsetsItem(nums []int, expected_count int, sum int, i int, expected int) bool {
+	fmt.Println(nums, expected_count, sum, i, expected)
+	if expected_count == 0 && len(nums) == 0 {
+		return true
+	}
+
+	if len(nums) < 1 {
+		return false
+	}
+
+	if i >= len(nums) {
+		return false
+	}
+
+	new_sum := sum + nums[i]
+	if new_sum == expected {
+		nums = append(nums[:i], nums[i+1:]...)
+		return canPartitionKSubsetsItem(nums, expected_count-1, 0, 0, expected)
+	}
+	if new_sum < expected {
+		return canPartitionKSubsetsItem(append(nums[:i], nums[i+1:]...), expected_count, new_sum, i, expected) || canPartitionKSubsetsItem(nums, expected_count, sum, i+1, expected)
+	}
+
+	return canPartitionKSubsetsItem(nums, expected_count, sum, i+1, expected)
 }
 
 func main() {
-	nums := []int{4, 3, 2, 3, 5, 2, 1}
-	k := 4
+	nums := []int{3522, 181, 521, 515, 304, 123, 2512, 312, 922, 407, 146, 1932, 4037, 2646, 3871, 269}
+	k := 5
 	fmt.Println("1111", canPartitionKSubsets(nums, k))
 }
