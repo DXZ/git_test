@@ -20,7 +20,11 @@ func canPartitionKSubsets(nums []int, k int) bool {
 		}
 	}
 
-	fmt.Println(sum, all_nums)
+	if sum%k != 0 {
+		return false
+	}
+	target := sum / k
+	fmt.Println(sum, all_nums, target)
 	return true
 }
 
