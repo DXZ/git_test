@@ -40,13 +40,16 @@ func canPartitionKSubsetsItem(nums []int, expected_count int, sum int, i int, ex
 		return false
 	}
 
+	new_nums := make([]int, 0, 0)
+	// new_nums
+	new_nums = append(new_nums, nums[:i]...)
+	new_nums = append(new_nums, nums[i+1:]...)
 	new_sum := sum + nums[i]
 	if new_sum == expected {
-		nums = append(nums[:i], nums[i+1:]...)
-		return canPartitionKSubsetsItem(nums, expected_count-1, 0, 0, expected)
+		return canPartitionKSubsetsItem(new_nums, expected_count-1, 0, 0, expected)
 	}
 	if new_sum < expected {
-		return canPartitionKSubsetsItem(append(nums[:i], nums[i+1:]...), expected_count, new_sum, i, expected) || canPartitionKSubsetsItem(nums, expected_count, sum, i+1, expected)
+		return canPartitionKSubsetsItem(new_nums, expected_count, new_sum, i, expected) || canPartitionKSubsetsItem(nums, expected_count, sum, i+1, expected)
 	}
 
 	return canPartitionKSubsetsItem(nums, expected_count, sum, i+1, expected)
