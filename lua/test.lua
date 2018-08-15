@@ -79,8 +79,22 @@ MithOrder["创新意识"] = 10
 print(#MithOrder)
 
 
-local numDict = {12="123",2="789"}
 
-print(numDict)
 
-return "asadas"
+
+local config = {}
+config.ProblemOrder = {}
+config.ProblemOrder["阅读理解"] = 1
+config.ProblemOrder["推理分析"] = 2
+config.ProblemOrder["列式运算"] = 3
+config.ProblemOrderMaxLength = 4
+
+print("start")
+for k,v in pairs(config.ProblemOrder) do
+    print(1111);print(k,v);print("11111")
+end
+
+
+-- local socket = require 'socket'
+-- socket.sleep(0.2)
+return 

@@ -1,4 +1,4 @@
-local cjson = require "cjson"
+local cjson = require("cjson")
 local aaa={}
 
 aaa["asd"]="123"
@@ -10,6 +10,1217 @@ local bbb = {}
 bbb["1"] = aaastr
 bbb["2"] = aaastr
 
+bbb["3"] = 1/0
+
+local inspect = require("inspect")
+print("aaaa---",inspect.inspect(bbb))
 local bbbstr = cjson.encode(bbb)
 local bbbdic = cjson.decode(bbbstr)
 print(type(bbbdic["1"]),bbbstr,bbb,aaastr)
+
+
+-- local aa = {
+--   code = 0,
+--   datatype = { "teacher", "total", "student", "teachingAnalysis" },
+--   msg = "",
+--   result = {
+--     student = {
+--       commitRate = {
+--         areaAvgeData = {
+--           commitRate = 83,
+--           overTimeRate = 14,
+--           uncommitRate = 3
+--         },
+--         conclusion = "班级作业提交率低，且有补交现象。",
+--         selfData = {
+--           commitRate = 90,
+--           overTimeRate = 10,
+--           uncommitRate = 0
+--         },
+--         state = 1,
+--         stateName = { "较低", "适中", "较高" },
+--         suggest = "提高作业提交率的几个技巧。\n1、布置作业分享通知单给家长，查看作业后把作业报告分享给家长。\n2、家长不配合，作业盒子可帮您解决家长的顾虑，详情查看“我的”—“给家长的一封信”。\n3、以适当的形式激励学生按时提交作业。\n4、及时对学生的变化进行反馈。"
+--       },
+--       redoComplete = {
+--         areaAvgeRate = 64,
+--         conclusion = "您的班级在本单元作业订正完成率高。",
+--         selfRate = 41,
+--         state = 3,
+--         stateName = { "较低", "适中", "较高" },
+--         stateValue = { 53, 62, 100 },
+--         suggest = "继续提升订正完成率，引导学生分类整理错题。"
+--       },
+--       rightRate = {
+--         areaAvgeRightNum = 86,
+--         conclusion = "您的班级在本单元的平均正确率为待合格，大部分学生未掌握本单元所学知识。",
+--         selfRightNum = 82,
+--         state = 1,
+--         stateName = { "待合格", "合格", "良好", "优秀" },
+--         stateValue = { 84, 85, 87, 100 },
+--         suggest = "根据班级本单元学习达到的水平和存在的问题，加强巩固练习。"
+--       },
+--       spendTime = {
+--         areaAvgeSpendTime = 2995,
+--         conclusion = "您的班级在本单元作业完成所用时间较长，学生思维能力有待提升。",
+--         selfSpendTime = 2995,
+--         state = 3,
+--         stateName = { "较短", "适中", "较长" },
+--         stateValue = { 2644, 2788, 2995 },
+--         suggest = "确定努力方向，加强巩固练习，并且适当提升做题速度。"
+--       },
+--       studentDataList = { {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 12220,
+--           studentId = 1901149
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 14990,
+--           studentId = 2003017
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 80,
+--           spendTime = 24950,
+--           studentId = 2002848
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 3140,
+--           studentId = 2003116
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = inf,
+--           studentId = 2003249
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 6570,
+--           studentId = 2003342
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 15620,
+--           studentId = 2003315
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 10365,
+--           studentId = 2003466
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 22890,
+--           studentId = 2003562
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 22755,
+--           studentId = 2004150
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 19120,
+--           studentId = 2004079
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 11685,
+--           studentId = 2004384
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 100,
+--           spendTime = 4030,
+--           studentId = 2004252
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 3305,
+--           studentId = 2005181
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 80,
+--           spendTime = 22180,
+--           studentId = 2003167
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 20565,
+--           studentId = 2007022
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 24945,
+--           studentId = 2007291
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 80,
+--           spendTime = 8440,
+--           studentId = 2007803
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 33,
+--           rightRate = 70,
+--           spendTime = 4300,
+--           studentId = 2010080
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 13680,
+--           studentId = 2010951
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 20160,
+--           studentId = 2011239
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 19065,
+--           studentId = 2011522
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 18485,
+--           studentId = 2012843
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 13905,
+--           studentId = 2006196
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 23890,
+--           studentId = 2007039
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 3330,
+--           studentId = 2009560
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 23565,
+--           studentId = 2002993
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 8265,
+--           studentId = 4788980
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 6440,
+--           studentId = 2049147
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 100,
+--           spendTime = 3180,
+--           studentId = 2003140
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 19550,
+--           studentId = 3049813
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 3745,
+--           studentId = 2003195
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 3325,
+--           studentId = 4793052
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 22910,
+--           studentId = 2062513
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 6745,
+--           studentId = 5038470
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 2965,
+--           studentId = 2025288
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 2670,
+--           studentId = 6325337
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 100,
+--           spendTime = 9260,
+--           studentId = 6398382
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 9590,
+--           studentId = 2016546
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 13490,
+--           studentId = 2008054
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 24815,
+--           studentId = 5039801
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 19290,
+--           studentId = 2002625
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 9730,
+--           studentId = 2072678
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 33,
+--           rightRate = 70,
+--           spendTime = 20560,
+--           studentId = 2006469
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 15030,
+--           studentId = 2007324
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 14000,
+--           studentId = 2051551
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 24720,
+--           studentId = 2009865
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 7760,
+--           studentId = 10821733
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 12085,
+--           studentId = 2025352
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 5400,
+--           studentId = 2017841
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 5985,
+--           studentId = 4788138
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 12060,
+--           studentId = 2979400
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 22475,
+--           studentId = 2005747
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 23515,
+--           studentId = 2046287
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 3920,
+--           studentId = 2003040
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 2890,
+--           studentId = 2003151
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 20580,
+--           studentId = 1987302
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 2835,
+--           studentId = 2005226
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 4705,
+--           studentId = 4808888
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 12740,
+--           studentId = 12143503
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 3745,
+--           studentId = 2020490
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 16455,
+--           studentId = 2797535
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 20450,
+--           studentId = 2123269
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 90,
+--           spendTime = 24445,
+--           studentId = 15914469
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 0,
+--           rightRate = 80,
+--           spendTime = 8475,
+--           studentId = 14564965
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 11355,
+--           studentId = 13875843
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 66,
+--           rightRate = 70,
+--           spendTime = 8685,
+--           studentId = 2007165
+--         }, {
+--           commitRate = 50,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 14690,
+--           studentId = 2010926
+--         } }
+--     },
+--     teacher = {
+--       assignmentData = {
+--         areaAvgeAssignmentNum = 31,
+--         conclusion = "当前布置作业次数较少，预测无法满足学生的练习需求，不利于精准分析学生对知识的掌握情况。",
+--         selfAssignmentNum = 2,
+--         state = 1,
+--         stateName = { "较少", "适中", "较多" },
+--         stateValue = { 4, 10, 31 },
+--         suggest = "建议每个单元每个课时至少布置一次作业，有利于学生对所学知识进行巩固与提升。"
+--       },
+--       avgeQuestionNum = {
+--         conclusion = "当前布置作业中题量适中，可满足学生的学习需求。",
+--         fb = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         jc = {
+--           areaAvgeQuestionNum = 5,
+--           selfavgeQuestionNum = 5
+--         },
+--         ks = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         selfavgeQuestionNum = 5,
+--         sp = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         state = 2,
+--         stateName = { "较少", "适中", "较多" },
+--         suggest = "建议保持当前状态，针对当前班级学习情况，可加强学生对薄弱知识的练习。"
+--       }
+--     },
+--     teachingAnalysis = {
+--       knowledgeSkill = {
+--         conclusion = "根据学生答题情况，得出班级对解决问题（位置与方向）知识掌握薄弱。",
+--         knowledgeList = { {
+--             areaAvgeRate = 81,
+--             name = "认识东西南北",
+--             selfRate = 24
+--           }, {
+--             areaAvgeRate = 78,
+--             name = "认识东北、东南、西北、西南",
+--             selfRate = 22
+--           }, {
+--             areaAvgeRate = 75,
+--             name = "解决问题（位置与方向）",
+--             selfRate = 0
+--           } },
+--         state = 1,
+--         stateName = { "薄弱", "一般", "扎实" },
+--         suggest = "针对以上薄弱知识进行重点练习。"
+--       },
+--       mathThinking = {
+--         conclusion = "本班数感能力偏弱。",
+--         skillList = { {
+--             areaAvgeRate = 75,
+--             name = "数感",
+--             selfRate = 5
+--           }, {
+--             areaAvgeRate = 74,
+--             name = "运算能力",
+--             selfRate = 30
+--           }, {
+--             areaAvgeRate = 71,
+--             name = "推理能力",
+--             selfRate = 53
+--           }, {
+--             areaAvgeRate = 79,
+--             name = "应用意识",
+--             selfRate = 36
+--           } },
+--         state = 1,
+--         stateName = { "偏弱", "一般", "较强" },
+--         suggest = "分析影响学生能力发展的原因，适当采取针对性训练。"
+--       },
+--       problemSolve = {
+--         conclusion = "您的班级在本单元的问题解决中，列式运算环节一般。",
+--         problemList = { {
+--             areaAvgeRate = 100,
+--             name = "问题解决",
+--             selfRate = 100
+--           }, {
+--             areaAvgeRate = 84,
+--             name = "阅读理解",
+--             selfRate = 100
+--           }, {
+--             areaAvgeRate = 60,
+--             name = "推理分析",
+--             selfRate = 73
+--           }, {
+--             areaAvgeRate = 39,
+--             name = "列式运算",
+--             selfRate = 18
+--           } },
+--         state = 2,
+--         stateName = { "薄弱", "一般", "较好" },
+--         suggest = "了解学生学习中存在的问题，着重提升学生的列式运算能力。"
+--       }
+--     },
+--     total = {
+--       overAreaPercent = 32,
+--       score = 74
+--     }
+--   },
+--   taskId = 16
+-- }
+
+-- print(cjson.encode(aa))
+
+-- local good = {
+--   code = 0,
+--   datatype = { "teacher", "total", "student", "teachingAnalysis" },
+--   msg = "",
+--   result = {
+--     student = {
+--       commitRate = {
+--         areaAvgeData = {
+--           commitRate = 83,
+--           overTimeRate = 14,
+--           uncommitRate = 3
+--         },
+--         conclusion = "班级作业提交率低，且有补交现象。",
+--         selfData = {
+--           commitRate = 86,
+--           overTimeRate = 11,
+--           uncommitRate = 3
+--         },
+--         state = 1,
+--         stateName = { "较低", "适中", "较高" },
+--         suggest = "提高作业提交率的几个技巧。\n1、布置作业分享通知单给家长，查看作业后把作业报告分享给家长。\n2、家长不配合，作业盒子可帮您解决家长的顾虑，详情查看“我的”—“给家长的一封信”。\n3、以适当的形式激励学生按时提交作业。\n4、及时对学生的变化进行反馈。"
+--       },
+--       redoComplete = {
+--         areaAvgeRate = 64,
+--         conclusion = "您的班级在本单元作业订正完成率高。",
+--         selfRate = 67,
+--         state = 3,
+--         stateName = { "较低", "适中", "较高" },
+--         stateValue = { 53, 62, 100 },
+--         suggest = "继续提升订正完成率，引导学生分类整理错题。"
+--       },
+--       rightRate = {
+--         areaAvgeRightNum = 86,
+--         conclusion = "您的班级在本单元平均正确率已达优秀，班级学生熟练掌握本单元所学知识。",
+--         selfRightNum = 87,
+--         state = 4,
+--         stateName = { "待合格", "合格", "良好", "优秀" },
+--         stateValue = { 84, 85, 87, 100 },
+--         suggest = "在巩固课内知识的基础上，适当进行拓展训练。"
+--       },
+--       spendTime = {
+--         areaAvgeSpendTime = 2995,
+--         conclusion = "您的班级在本单元作业完成所用时间较长，学生思维能力较强。",
+--         selfSpendTime = 2995,
+--         state = 3,
+--         stateName = { "较短", "适中", "较长" },
+--         stateValue = { 2644, 2788, 2995 },
+--         suggest = "在保证正确率的前提下，尽可能提升做题速度。"
+--       },
+--       studentDataList = { {
+--           commitRate = 94,
+--           redoComplete = 87,
+--           rightRate = 78,
+--           spendTime = 22165,
+--           studentId = 5241494
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 95,
+--           rightRate = 81,
+--           spendTime = 23485,
+--           studentId = 5241389
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 80,
+--           rightRate = 76,
+--           spendTime = 21278,
+--           studentId = 5241364
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 50,
+--           rightRate = 76,
+--           spendTime = 9796,
+--           studentId = 5241270
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 83,
+--           rightRate = 94,
+--           spendTime = 23784,
+--           studentId = 4342662
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 78,
+--           rightRate = 74,
+--           spendTime = 21859,
+--           studentId = 5241501
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 75,
+--           rightRate = 92,
+--           spendTime = 18388,
+--           studentId = 5242996
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 57,
+--           rightRate = 93,
+--           spendTime = 7913,
+--           studentId = 5243026
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 37,
+--           rightRate = 92,
+--           spendTime = 24921,
+--           studentId = 5241869
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 57,
+--           rightRate = 93,
+--           spendTime = 12570,
+--           studentId = 5242525
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 96,
+--           rightRate = 74,
+--           spendTime = 10132,
+--           studentId = 5244392
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 50,
+--           rightRate = 92,
+--           spendTime = 27029,
+--           studentId = 5244321
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 40,
+--           rightRate = 95,
+--           spendTime = 20521,
+--           studentId = 5243785
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 0,
+--           rightRate = 100,
+--           spendTime = 4644,
+--           studentId = 5243734
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 77,
+--           rightRate = 80,
+--           spendTime = 9777,
+--           studentId = 2963823
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 33,
+--           rightRate = 97,
+--           spendTime = 3911,
+--           studentId = 5243286
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 47,
+--           rightRate = 80,
+--           spendTime = 26106,
+--           studentId = 5243273
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 42,
+--           rightRate = 82,
+--           spendTime = 5671,
+--           studentId = 5241673
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 50,
+--           rightRate = 80,
+--           spendTime = 29125,
+--           studentId = 5243329
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 70,
+--           rightRate = 90,
+--           spendTime = 26730,
+--           studentId = 5243405
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 42,
+--           rightRate = 76,
+--           spendTime = 3526,
+--           studentId = 5245665
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 75,
+--           rightRate = 96,
+--           spendTime = 8775,
+--           studentId = 4294039
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 92,
+--           rightRate = 75,
+--           spendTime = 4479,
+--           studentId = 5255820
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 40,
+--           rightRate = 86,
+--           spendTime = 23411,
+--           studentId = 5255371
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 70,
+--           rightRate = 90,
+--           spendTime = 29345,
+--           studentId = 5252066
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 42,
+--           rightRate = 93,
+--           spendTime = 21077,
+--           studentId = 5241642
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 40,
+--           rightRate = 95,
+--           spendTime = 19745,
+--           studentId = 5250716
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 35,
+--           rightRate = 81,
+--           spendTime = 7467,
+--           studentId = 5247634
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 87,
+--           rightRate = 92,
+--           spendTime = 23375,
+--           studentId = 5247388
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 100,
+--           rightRate = 82,
+--           spendTime = 19408,
+--           studentId = 2662372
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 85,
+--           rightRate = 81,
+--           spendTime = 11336,
+--           studentId = 5246943
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 52,
+--           rightRate = 80,
+--           spendTime = 26888,
+--           studentId = 5246299
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 60,
+--           rightRate = 95,
+--           spendTime = 12625,
+--           studentId = 5245595
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 0,
+--           rightRate = 98,
+--           spendTime = 20136,
+--           studentId = 5259104
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 44,
+--           rightRate = 83,
+--           spendTime = 26393,
+--           studentId = 5253650
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 0,
+--           rightRate = 100,
+--           spendTime = 25251,
+--           studentId = 5249515
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 42,
+--           rightRate = 87,
+--           spendTime = 22262,
+--           studentId = 5249472
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 83,
+--           rightRate = 94,
+--           spendTime = 15583,
+--           studentId = 5243249
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 85,
+--           rightRate = 80,
+--           spendTime = 25214,
+--           studentId = 5249263
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 83,
+--           rightRate = 78,
+--           spendTime = 15118,
+--           studentId = 5248305
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 78,
+--           rightRate = 82,
+--           spendTime = 8971,
+--           studentId = 5248036
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 77,
+--           rightRate = 83,
+--           spendTime = 24035,
+--           studentId = 5259918
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 74,
+--           rightRate = 75,
+--           spendTime = 18932,
+--           studentId = 5260011
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 37,
+--           rightRate = 92,
+--           spendTime = 24517,
+--           studentId = 5259941
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 60,
+--           rightRate = 95,
+--           spendTime = 9796,
+--           studentId = 5243127
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 57,
+--           rightRate = 93,
+--           spendTime = 16267,
+--           studentId = 5259911
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 45,
+--           rightRate = 90,
+--           spendTime = 11568,
+--           studentId = 5261452
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 72,
+--           rightRate = 90,
+--           spendTime = 13242,
+--           studentId = 5261218
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 80,
+--           rightRate = 95,
+--           spendTime = 10975,
+--           studentId = 5250449
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 61,
+--           rightRate = 83,
+--           spendTime = 25287,
+--           studentId = 5261037
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 72,
+--           rightRate = 90,
+--           spendTime = 13230,
+--           studentId = 5263825
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 44,
+--           rightRate = 91,
+--           spendTime = 7920,
+--           studentId = 5260139
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 83,
+--           rightRate = 94,
+--           spendTime = 5530,
+--           studentId = 5274636
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 77,
+--           rightRate = 91,
+--           spendTime = 23252,
+--           studentId = 5273092
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 38,
+--           rightRate = 80,
+--           spendTime = 16347,
+--           studentId = 5260177
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 88,
+--           rightRate = 75,
+--           spendTime = 20258,
+--           studentId = 5267864
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 54,
+--           rightRate = 78,
+--           spendTime = 15528,
+--           studentId = 5247960
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 62,
+--           rightRate = 92,
+--           spendTime = 22800,
+--           studentId = 5285974
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 66,
+--           rightRate = 97,
+--           spendTime = 10065,
+--           studentId = 5258940
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 80,
+--           rightRate = 95,
+--           spendTime = 15045,
+--           studentId = 5267628
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 66,
+--           rightRate = 94,
+--           spendTime = 25507,
+--           studentId = 5307302
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 50,
+--           rightRate = 92,
+--           spendTime = 15620,
+--           studentId = 5448087
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 42,
+--           rightRate = 82,
+--           spendTime = 24175,
+--           studentId = 5985188
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 66,
+--           rightRate = 94,
+--           spendTime = 29950,
+--           studentId = 6107537
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 52,
+--           rightRate = 82,
+--           spendTime = 9563,
+--           studentId = 5242113
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 61,
+--           rightRate = 80,
+--           spendTime = 14477,
+--           studentId = 6475881
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 94,
+--           rightRate = 82,
+--           spendTime = 4455,
+--           studentId = 6485382
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 50,
+--           rightRate = 98,
+--           spendTime = 19696,
+--           studentId = 6603438
+--         }, {
+--           commitRate = 100,
+--           redoComplete = 77,
+--           rightRate = 83,
+--           spendTime = 23570,
+--           studentId = 7210022
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 77,
+--           rightRate = 83,
+--           spendTime = 26546,
+--           studentId = 8086574
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 88,
+--           rightRate = 84,
+--           spendTime = 9649,
+--           studentId = 9157531
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 100,
+--           rightRate = 88,
+--           spendTime = 7180,
+--           studentId = 18548285
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 90,
+--           rightRate = 80,
+--           spendTime = 7021,
+--           studentId = 18552703
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 37,
+--           rightRate = 92,
+--           spendTime = 13670,
+--           studentId = 18557216
+--         }, {
+--           commitRate = 88,
+--           redoComplete = 44,
+--           rightRate = 75,
+--           spendTime = 6294,
+--           studentId = 5244427
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 90,
+--           rightRate = 90,
+--           spendTime = 3727,
+--           studentId = 5263435
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 52,
+--           rightRate = 77,
+--           spendTime = 3318,
+--           studentId = 18579684
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 69,
+--           rightRate = 88,
+--           spendTime = 27408,
+--           studentId = 18618387
+--         }, {
+--           commitRate = 94,
+--           redoComplete = 0,
+--           rightRate = 98,
+--           spendTime = 23216,
+--           studentId = 18584157
+--         } }
+--     },
+--     teacher = {
+--       assignmentData = {
+--         areaAvgeAssignmentNum = 31,
+--         conclusion = "当前布置作业次数较多，满足学生的练习需求，存在增加学生作业负担的可能。",
+--         selfAssignmentNum = 18,
+--         state = 3,
+--         stateName = { "较少", "适中", "较多" },
+--         stateValue = { 4, 10, 31 },
+--         suggest = "建议精减练习题目，布置针对性较强的练习题目。"
+--       },
+--       avgeQuestionNum = {
+--         conclusion = "当前布置作业中题量适中，可满足学生的学习需求。",
+--         fb = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         jc = {
+--           areaAvgeQuestionNum = 5,
+--           selfavgeQuestionNum = 6
+--         },
+--         ks = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         selfavgeQuestionNum = 6,
+--         sp = {
+--           areaAvgeQuestionNum = 0,
+--           selfavgeQuestionNum = 0
+--         },
+--         state = 2,
+--         stateName = { "较少", "适中", "较多" },
+--         suggest = "建议保持当前状态，针对当前班级学习情况，可加强学生对薄弱知识的练习。"
+--       }
+--     },
+--     teachingAnalysis = {
+--       knowledgeSkill = {
+--         conclusion = "根据学生答题情况，得出班级对解决问题（位置与方向）知识掌握扎实。",
+--         knowledgeList = { {
+--             areaAvgeRate = 81,
+--             name = "认识东西南北",
+--             selfRate = 95
+--           }, {
+--             areaAvgeRate = 78,
+--             name = "认识东北、东南、西北、西南",
+--             selfRate = 85
+--           }, {
+--             areaAvgeRate = 75,
+--             name = "解决问题（位置与方向）",
+--             selfRate = 90
+--           } },
+--         state = 3,
+--         stateName = { "薄弱", "一般", "扎实" },
+--         suggest = "可适当进行拓展训练。"
+--       },
+--       mathThinking = {
+--         conclusion = "本班数感能力偏弱。",
+--         skillList = { {
+--             areaAvgeRate = 75,
+--             name = "数感",
+--             selfRate = 5
+--           }, {
+--             areaAvgeRate = 74,
+--             name = "运算能力",
+--             selfRate = 16
+--           }, {
+--             areaAvgeRate = 71,
+--             name = "推理能力",
+--             selfRate = 5
+--           }, {
+--             areaAvgeRate = 79,
+--             name = "应用意识",
+--             selfRate = 37
+--           } },
+--         state = 1,
+--         stateName = { "偏弱", "一般", "较强" },
+--         suggest = "分析影响学生能力发展的原因，适当采取针对性训练。"
+--       },
+--       problemSolve = {
+--         conclusion = "您的班级在本单元的问题解决中，推理分析环节一般。",
+--         problemList = { {
+--             areaAvgeRate = 100,
+--             name = "问题解决",
+--             selfRate = 100
+--           }, {
+--             areaAvgeRate = 84,
+--             name = "阅读理解",
+--             selfRate = 89
+--           }, {
+--             areaAvgeRate = 60,
+--             name = "推理分析",
+--             selfRate = 54
+--           }, {
+--             areaAvgeRate = 39,
+--             name = "列式运算",
+--             selfRate = 42
+--           } },
+--         state = 2,
+--         stateName = { "薄弱", "一般", "较好" },
+--         suggest = "了解学生学习中存在的问题，着重提升学生的推理分析能力。"
+--       }
+--     },
+--     total = {
+--       overAreaPercent = 85,
+--       score = 92
+--     }
+--   },
+--   taskId = 12
+-- }
+
+-- print(cjson.encode(good))
