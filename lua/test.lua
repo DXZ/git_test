@@ -7,13 +7,82 @@ function revtab(tab)
 end
 print("asd")
 
+
+math.randomseed(tostring(os.time()):reverse():sub(1, 6))
+
+
+local inspect = require("inspect")
+
+
+local test = {}
+
+
+
+
+table.insert(test,1)
+table.insert(test,2)
+table.insert(test,3)
+print("----------------------------########################",#test,test[1],test[2])
+
+
+local metatable = {}
+metatable.meta1 = {2,1,2,3}
+metatable.meta2 = {}
+table.insert(metatable.meta2,111111)
+
+
+print("-------metatable-------",inspect.inspect(metatable))
+
+
+
+local table1 = {}
+setmetatable(table1,{_index=metatable})
+
+print("--------table1------",inspect.inspect(table1))
+
+
+
+table.insert(metatable.meta2,222222)
+print("--------table1------",inspect.inspect(table1))
+print("--------metatable------",inspect.inspect(metatable))
+
+print("-------------------------------------------------------end---metatable----------------------------------------------")
+
+a = -1
+b = 0
+c = 3
+
+print("---",a > b and b or c)
+-- while true do
+--     local key = math.random(1, 6)
+--     print(key)
+-- end
+
 local a = {123,345}
 print(table.unpack(a).."aaaa")
 
 local i = {}
 i[1]  = 1
-i[3]  = 1
-i[2]  = 1
+i[3]  = 3
+
+i[10]  = 10
+
+-- i[10000]  = 10000
+
+local cjson = require("cjson.safe")
+
+local b = cjson.encode(i)
+print("-0--------------aaa------aa-----b------",b)
+local c = cjson.decode(b)
+print(c[1],c[3],c[10],"-------------------------ccc----------cc-----")
+
+
+-- i["1"] = 12
+
+local tmp = "1"
+local tmp2 = "2"
+local i ={tmp=tmp,tmp2=tmp2}
+print("----------",i.tmp2)
 
 local ccc = {asd={1,3,4,4}}
 print("ccc=",ccc)
