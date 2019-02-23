@@ -4,6 +4,8 @@ import (
    "github.com/gin-gonic/gin"  
    "github.com/gorilla/websocket" 
    "net/http"
+   "fmt"
+   "time"
 )  
   
   
@@ -16,6 +18,7 @@ var upGrader = websocket.Upgrader{
 //webSocket请求ping 返回pong  
 func ping(c *gin.Context) {  
    //升级get请求为webSocket协议
+
    ws, err := upGrader.Upgrade(c.Writer, c.Request, nil)  
    if err != nil {  
       return  
@@ -35,10 +38,17 @@ func ping(c *gin.Context) {
       if err != nil {  
          break  
       }  
+
+      err = ws.WriteMessage(mt, []byte("test111"))
    }  
+
+   fmt.Println("---end-11-----")
+   time.Sleep(3*time.Second)
+   fmt.Println("---end-22-----")
 }  
     
 func main() {  
+   fmt.Println("---------------",websocket.PingMessage)
    bindAddress := "0.0.0.0:2303"  
    r := gin.Default()  
    r.GET("/ping", ping)  
