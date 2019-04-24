@@ -13,6 +13,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+
 func longestUnivalue(root *TreeNode, max int) (maxEnd int, deep int) {
 	deep = 0
 	maxEnd = max
@@ -143,6 +144,53 @@ func longestUnivaluePath2(root *TreeNode) int {
 	}
 
 	return maxL
+}
+
+func max(a, b int) int {
+    if a >= b {
+        return a
+    } else {
+        return b
+    }
+}
+
+
+func Serach(node *TreeNode,*res int) (int) {
+
+	if node == nil {
+		return 0
+	}
+
+	left,right := Serach(node.Left,res),Serach(node.Right,res)
+	if !(node.Left !=nil && node.Left.Val == node.Val) {
+		left = 0
+	}
+	if !(node.Right !=nil && node.Right.Val == node.Val) {
+		right = 0
+	}
+	*res	 = max(*res,left+right)
+	return max(left,right) + 1
+}
+
+func longestUnivaluePath(root *TreeNode) int {
+    res := 0
+    var f func(*TreeNode) int
+    f = func (node *TreeNode) int {
+        if node == nil {
+            return 0
+        }
+        left, right := f(node.Left), f(node.Right)
+        if !(node.Left != nil && node.Left.Val == node.Val) {
+            left = 0
+        }
+        if !(node.Right != nil && node.Right.Val == node.Val) {
+            right = 0
+        }
+        res = max(res, left + right)
+        return max(left, right) + 1
+    }
+    f(root)
+    return res
 }
 
 func main() {
